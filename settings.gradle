@@ -1,9 +1,29 @@
 pluginManagement {
     repositories {
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
         google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
-rootProject.name = "c11assistant"
-include(":app")
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+        maven { url = uri("https://jcenter.bintray.com") }
+        flatDir {
+            dirs("app/libs")
+        }
+    }
+}
+
+rootProject.name = 'C11Assistant'
+include ':app'
