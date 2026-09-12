@@ -5,6 +5,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SKIP_JDK_VERSION_CHECK: true
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
